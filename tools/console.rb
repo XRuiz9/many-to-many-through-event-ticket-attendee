@@ -21,6 +21,8 @@ jeannie = Attendee.new("Jeannie", 32)
 amaris = Attendee.new("Amaris", 19)
 ticket4 = Ticket.new(jeannie, movie)
 ticket5 = Ticket.new(amaris, party)
+venue = Venue.new("My House", "Texas", 400)
+party.venue = venue
 
 #The variable `lucy` will point to an instance of a new attendee
 

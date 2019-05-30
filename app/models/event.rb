@@ -1,5 +1,5 @@
 class Event
-	attr_accessor :name, :total_cost, :ticket_price
+	attr_accessor :name, :total_cost, :ticket_price, :venue
 	@@all = []
 
 	def initialize(name, cost, price)
