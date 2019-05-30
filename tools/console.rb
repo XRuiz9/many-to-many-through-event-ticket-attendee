@@ -11,6 +11,16 @@ end
 #Example of a variable definition that will be available in your Pry session once you've built out the model:
 
 lucy = Attendee.new("Lucy", 22)
+party = Event.new("On Top", 100, 10)
+ticket = Ticket.new(lucy, party)
+movie = Event.new("Pikachu", 200, 10)
+ticket2 = Ticket.new(lucy, movie)
+bob = Attendee.new("Bob", 47)
+ticket3 = Ticket.new(bob, party)
+jeannie = Attendee.new("Jeannie", 32)
+amaris = Attendee.new("Amaris", 19)
+ticket4 = Ticket.new(jeannie, movie)
+ticket5 = Ticket.new(amaris, party)
 
 #The variable `lucy` will point to an instance of a new attendee
 

@@ -1,4 +1,47 @@
 class Event
+	attr_accessor :name, :total_cost, :ticket_price
+	@@all = []
+
+	def initialize(name, cost, price)
+		@name = name
+		@total_cost = cost
+		@ticket_price = price
+		@@all << self
+	end
+
+
+	def sell_to_break_even
+		breakeven = (@total_cost/@ticket_price).round
+		ticketsSold = Ticket.all.select do |ticket|
+			ticket.event == self
+		end
+
+		if ticketsSold.size >= breakeven
+			0
+		else
+			breakeven - ticketsSold.size
+		end
+	end
+
+	def attendees
+		Ticket.all.select do |ticket|
+			ticket.event == self
+		end.map do |ticket|
+			ticket.attendee
+		end
+	end
+
+	def average_age
+		ages = 0
+		self.attendees.each do |attendee|
+			ages += attendee.age
+		end
+		ages/self.attendees.count
+	end
+
+	def self.all
+		@@all
+	end
 end
 
 # Event.all
